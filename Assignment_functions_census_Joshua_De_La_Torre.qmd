@@ -78,7 +78,7 @@ head(flights)
 jfkflights<- flights
 filtered_data<- filter(jfkflights, origin == "JFK")
 filtered_data2<- jfkflights[which(jfkflights$origin == "JFK"),]
-head(jfkflights)
+head(filtered_data)
 
 ```
 
