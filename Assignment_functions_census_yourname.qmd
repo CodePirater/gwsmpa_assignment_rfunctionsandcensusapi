@@ -1,6 +1,6 @@
 ---
 title: "R Assignment - Initial Functions and APIs"
-author: "Your Name Here"
+author: "Joshua De La Torre"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -30,9 +30,9 @@ options(tigris_class = "sf")
 
 ```{r}
 
+df<- c(69, 420)
 
-
-
+sum(df)
 
 ```
 
@@ -40,8 +40,9 @@ options(tigris_class = "sf")
 
 ```{r}
 
+df2<- c(2,4,6,8,10) 
 
-
+mean(df2)
 
 
 
@@ -52,9 +53,12 @@ options(tigris_class = "sf")
 
 ```{r}
 
-
-
-
+df2<- c(2,4,6,8,10) 
+df2result <- function(df2result){
+  result <- paste0("The mean is ", mean(df2))
+  return(result)
+}
+df2result(result)
 
 ```
 
@@ -64,18 +68,17 @@ For these next two questions, we'll use the `flights` dataset from the package `
 #load the data to use for the rest of the assignment questions
 flights <- nycflights13::flights
 
-head(flights)
+head(flights) 
 ```
 
 4) Using the `flights` dataset, create a function that filters the data frame to only include records from a single originating airport (column name `origin`). In other words, it should let you enter an origin airport and return all the records from just that airport.
 
 ```{r}
 
-
-
-
-
-
+jfkflights<- flights
+filtered_data<- filter(jfkflights, origin == "JFK")
+filtered_data2<- jfkflights[which(jfkflights$origin == "JFK"),]
+head(jfkflights)
 
 ```
 
