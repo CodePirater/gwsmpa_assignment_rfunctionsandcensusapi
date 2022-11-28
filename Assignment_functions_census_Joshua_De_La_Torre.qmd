@@ -90,10 +90,10 @@ head(filtered_data)
 
 ```{r}
 
-
-
-
-
+agg = aggregate(filtered_data,
+                by = list(filtered_data$carrier),
+                FUN = 'order')
+head(filtered_data)
 
 ```
 
@@ -112,8 +112,9 @@ https://api.census.gov/data/key_signup.html
 Uncomment the code below and run it to install your API key on your computer. Again, you only have to do this one time, so once it's install you can comment out the code again so it doesn't run every single time.
 
 ```{r}
+#census_api_key("60eaa45d650b8178b5b376a7cc53499545ee6d36", install=TRUE)
 
-# census_api_key("PUTYOURAPIKEYHERE", install=TRUE)
+#census_api_key("60eaa45d650b8178b5b376a7cc53499545ee6d36", overwrite = TRUE, install=TRUE)
 
 
 ```
@@ -130,10 +131,11 @@ Now, using the `get_acs()` function in tidycensus, pull down the state-level dat
 
 ```{r}
 
+get_acs(geography = "tract", state = NULL)
 
+head(myvars)
 
-
-
+e
 ```
 
 To make things a little cleaner, use the `select()` function to remove the three "margin of error" columns, which are denoted with their ending "M".
